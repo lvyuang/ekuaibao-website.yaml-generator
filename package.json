@@ -1,13 +1,13 @@
 {
   "name": "ekuaibao-website-yaml-generator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "src/cli.ts",
   "scripts": {
     "build": "tsc"
   },
   "bin": {
-    "ekuaibao-website-yaml-generator": "./bin/cli.js"
+    "ekuaibao-wyg": "./bin/cli.js"
   },
   "files": [
     "bin"
