@@ -1,0 +1,26 @@
+{
+  "name": "ekuaibao-website-yaml-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/cli.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "bin": {
+    "serve": "./bin/cli.js"
+  },
+  "files": [
+    "bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvyuang/ekuaibao-website.yaml-generator.git"
+  },
+  "author": "lvquan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lvyuang/ekuaibao-website.yaml-generator/issues"
+  },
+  "homepage": "https://github.com/lvyuang/ekuaibao-website.yaml-generator#readme",
+  "dependencies": {}
+}
