@@ -29,7 +29,7 @@ console.log('## appletVersion', appletVersion)
 
 // 生成配置文件
 console.log('## 生成配置文件')
-const template = fs.readFileSync(`${__dirname}/../website.yaml`, {
+const template = fs.readFileSync(`${__dirname}/website.yaml`, {
   encoding: 'utf8'
 })
 const content = template.replace('${WEB_VERSION}', webVersion).replace('${APPLET_VERSION}', appletVersion)
