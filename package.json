@@ -1,6 +1,6 @@
 {
   "name": "ekuaibao-website-yaml-generator",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "main": "src/cli.ts",
   "scripts": {

@@ -17,7 +17,6 @@ if (!argv[2] || argv[2] === 'help' || argv[2] === '--help' || argv[2] === '-h' |
 }
 
 const namespace = argv[2]
-
 const tmpdir = os.tmpdir() + '/ekuaibao-website-yaml-generator'
 
 // 删除 repos 目录
@@ -26,8 +25,8 @@ fs.removeSync(tmpdir)
 
 // 下载代码
 console.log('## 下载代码')
-exec(`git clone --depth 1 -b refactor git@git.ekuaibao.com:whispered/applet.git ${tmpdir}/applet`)
-exec(`git clone --depth 1 -b refactor-datagrid git@git.ekuaibao.com:whispered/web.git ${tmpdir}/web`)
+exec(`git clone --depth 1 -b ${namespace === '460' ? 'develop' : 'refactor'} git@git.ekuaibao.com:whispered/applet.git ${tmpdir}/applet`)
+exec(`git clone --depth 1 -b ${namespace === '460' ? 'develop' : 'refactor-datagrid'} git@git.ekuaibao.com:whispered/web.git ${tmpdir}/web`)
 
 // 读取版本号
 function readVersion(packageJsonPath) {
