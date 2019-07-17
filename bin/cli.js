@@ -2,6 +2,21 @@
 const exec = require('child_process').execSync
 const fs = require('fs-extra')
 const os = require('os')
+const argv = process.argv
+
+if (!argv[2] || argv[2] === 'help' || argv[2] === '--help' || argv[2] === '-h' || (argv[2] !== '460' && argv[2] !== 'es')) {
+  console.log(`
+  ekuaibao-wyg [options]
+
+  options:
+    es: 生成 es 环境所需配置文件
+    460: 生成 460 环境所需配置文件
+    help: 查看帮助文档
+  `)
+  process.exit()
+}
+
+const namespace = argv[2]
 
 const tmpdir = os.tmpdir() + '/ekuaibao-website-yaml-generator'
 
@@ -32,7 +47,12 @@ console.log('## 生成配置文件')
 const template = fs.readFileSync(`${__dirname}/website.yaml`, {
   encoding: 'utf8'
 })
-const content = template.replace('${WEB_VERSION}', webVersion).replace('${APPLET_VERSION}', appletVersion)
+let content = template.replace('${WEB_VERSION}', webVersion).replace('${APPLET_VERSION}', appletVersion)
+
+if (namespace === '460') {
+  content = content.replace(/namespace:\ es/g, 'namespace: 460')
+}
+
 const outputPath = `${process.cwd()}/website.yaml`
 fs.writeFileSync(outputPath, content, {
   encoding: 'utf8'
