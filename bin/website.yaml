@@ -143,7 +143,7 @@ spec:
         spec:
             containers:
                 - name: website
-                  image: docker.ekuaibao.com/openresty:1.13.6
+                  image: registry.ekuaibao.com/infra/openresty:1.13.6
                   imagePullPolicy: Always
                   volumeMounts:
                       - name: tz-config
@@ -162,7 +162,7 @@ spec:
                       limits:
                           memory: 512Mi
                 - name: web
-                  image: docker.ekuaibao.com/whispered-web:${WEB_VERSION}-beta
+                  image: registry.ekuaibao.com/dev/whispered-web:${WEB_VERSION}-beta
                   imagePullPolicy: Always
                   volumeMounts:
                       - name: conf
@@ -171,7 +171,7 @@ spec:
                         mountPath: /data
                         subPath: web
                 - name: applet
-                  image: docker.ekuaibao.com/whispered-applet:${APPLET_VERSION}-beta
+                  image: registry.ekuaibao.com/dev/whispered-applet:${APPLET_VERSION}-beta
                   imagePullPolicy: Always
                   volumeMounts:
                       - name: conf
